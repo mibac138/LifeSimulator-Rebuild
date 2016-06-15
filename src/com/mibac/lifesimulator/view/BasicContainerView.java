@@ -5,10 +5,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import com.mibac.lifesimulator.entities.IEntity;
-import com.mibac.lifesimulator.utils.Position;
+import com.mibac.lifesimulator.entities.BasicEntity;
 
-public class BasicContainerView extends AbstractContainerView {
+public class BasicContainerView extends ContainerView<BasicEntity> {
     private static final long serialVersionUID = 1L;
 
     @Override
@@ -20,18 +19,14 @@ public class BasicContainerView extends AbstractContainerView {
         graphics.setColor(Color.white);
         graphics.fillRect(0, 0, getWidth(), getHeight());
 
-        graphics.setColor(Color.green);
-        for (IEntity entity : container.getEntities())
-            drawCenteredOval(graphics, entity.getPosition(), 50);
-
+        for (BasicEntity entity : container.getEntities()) {
+            graphics.setColor(Color.green);
+            drawCenteredOval(graphics, entity.getPosition(), 10);
+            graphics.setColor(Color.red);
+            graphics.drawLine(entity.getPosition().getX(), entity.getPosition().getY(),
+                    entity.getTarget().getX(), entity.getTarget().getY());
+        }
         g.drawImage(buffer, 0, 0, getWidth(), getHeight(), 0, 0, buffer.getWidth(),
                 buffer.getHeight(), this);
-    }
-
-    private void drawCenteredOval(Graphics2D graphics, Position center, int r) {
-        int r2 = r / 2;
-        int x = center.getX() - r2;
-        int y = center.getY() - r2;
-        graphics.fillOval(x, y, r, r);
     }
 }

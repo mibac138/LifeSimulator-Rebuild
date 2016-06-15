@@ -1,7 +1,21 @@
 package com.mibac.lifesimulator.utils;
 
+import com.mibac.lifesimulator.entities.IEntity;
+
+/**
+ * Class used for representing {@link IEntity entities} position
+ *
+ * @author Michał "Mibac" Bączkowski
+ *
+ */
 public class Position {
+    /**
+     * X coordinate
+     */
     public double x;
+    /**
+     * Y coordinate
+     */
     public double y;
 
     public Position(double x, double y) {
@@ -43,9 +57,14 @@ public class Position {
         setPosition(p.x, p.y);
     }
 
-    public double distance(Position p) {
-        double x = this.x - p.x;
-        double y = this.y - p.y;
+    /**
+     *
+     * @param second
+     * @return distance between this and {@code second} position
+     */
+    public double distance(Position second) {
+        double x = this.x - second.x;
+        double y = this.y - second.y;
 
         return Math.sqrt(x * x + y * y);
     }
@@ -55,5 +74,23 @@ public class Position {
         final double _y = this.y - y;
 
         return Math.sqrt(_x * _x + _y * _y);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this)
+            return true;
+
+        if (other instanceof Position) {
+            Position that = (Position) other;
+            return this.x == that.x && this.y == that.y;
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 41 * (41 + getX()) + getY();
     }
 }

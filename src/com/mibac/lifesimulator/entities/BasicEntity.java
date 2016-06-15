@@ -2,24 +2,27 @@ package com.mibac.lifesimulator.entities;
 
 import com.mibac.lifesimulator.utils.Position;
 
-public class BasicEntity implements IEntity {
-    protected Position position;
+public class BasicEntity extends Entity {
+    protected Position target;
+    protected double speed;
 
     public BasicEntity() {
-        position = new Position();
+        this.speed = 7.25;
     }
 
-    public BasicEntity(Position position) {
-        this.position = position;
+    public Position getTarget() {
+        return target;
     }
 
-    @Override
-    public Position getPosition() {
-        return position;
+    public void setTarget(Position target) {
+        this.target = target;
     }
 
-    @Override
-    public void setPosition(Position position) {
-        this.position = position;
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 }
