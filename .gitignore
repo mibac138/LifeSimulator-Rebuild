@@ -14,6 +14,7 @@ hs_err_pid*
 *.pmd
 reports/
 
+target
 
 .metadata
 bin/

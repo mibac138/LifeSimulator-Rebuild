@@ -83,7 +83,7 @@ public class Position {
 
         if (other instanceof Position) {
             Position that = (Position) other;
-            return this.x == that.x && this.y == that.y;
+            return Math.abs(this.x - that.x) < .0000001 && Math.abs(this.y - that.y) < .0000001;
         }
 
         return false;
