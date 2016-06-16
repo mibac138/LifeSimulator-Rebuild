@@ -26,6 +26,8 @@ public class ContainerTest extends TestCase {
             new Container<>(null);
             fail("Container didn't throw IllegalArgumentException when null argument was given");
         } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
+            fail("Container threw unexpected exception");
         }
     }
 
