@@ -1,5 +1,8 @@
 package com.mibac.lifesimulator.entities;
 
+import java.util.List;
+
+import com.mibac.lifesimulator.utils.DistanceComparator;
 import com.mibac.lifesimulator.utils.Position;
 
 public class BasicEntity extends Entity {
@@ -8,6 +11,17 @@ public class BasicEntity extends Entity {
 
     public BasicEntity() {
         this.speed = 7.25;
+    }
+
+    // BUG always 1 sets target to itself
+    public void update(List<? extends IEntity> entities) {
+        if (entities.size() <= 1)
+            return;
+
+        entities.sort(new DistanceComparator.EntityComparator(this));
+        entities.remove(0); // remove itself
+
+        setTarget(entities.get(0).getPosition());
     }
 
     public Position getTarget() {

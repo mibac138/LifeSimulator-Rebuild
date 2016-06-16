@@ -23,8 +23,9 @@ public class BasicContainerView extends ContainerView<BasicEntity> {
             graphics.setColor(Color.green);
             drawCenteredOval(graphics, entity.getPosition(), 10);
             graphics.setColor(Color.red);
-            graphics.drawLine(entity.getPosition().getX(), entity.getPosition().getY(),
-                    entity.getTarget().getX(), entity.getTarget().getY());
+            if (entity.getTarget() != null)
+                graphics.drawLine(entity.getPosition().getX(), entity.getPosition().getY(),
+                        entity.getTarget().getX(), entity.getTarget().getY());
         }
         g.drawImage(buffer, 0, 0, getWidth(), getHeight(), 0, 0, buffer.getWidth(),
                 buffer.getHeight(), this);
