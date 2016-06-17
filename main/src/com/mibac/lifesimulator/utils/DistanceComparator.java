@@ -17,10 +17,21 @@ public class DistanceComparator {
     public static class PositionComparator implements Comparator<Position> {
         private Position compared;
 
+        /**
+         * One of two constructors. This one is the same as calling
+         * {@link #PositionComparator(Position)} with <code>entity.getPosition()</code>
+         *
+         * @param compared - IEntity which you want to compare distance to
+         */
         public PositionComparator(IEntity compared) {
             this(compared.getPosition());
         }
 
+        /**
+         * Main constructor.
+         *
+         * @param compared - Position which you want to compare distance to
+         */
         public PositionComparator(Position compared) {
             this.compared = compared;
         }
@@ -44,10 +55,21 @@ public class DistanceComparator {
     public static class EntityComparator implements Comparator<IEntity> {
         private Position compared;
 
+        /**
+         * One of two constructors. This one is the same as calling
+         * {@link #EntityComparator(Position)} with <code>entity.getPosition()</code>
+         *
+         * @param compared - IEntity which you want to compare distance to
+         */
         public EntityComparator(IEntity compared) {
             this(compared.getPosition());
         }
 
+        /**
+         * Main constructor.
+         *
+         * @param compared - Position which you want to compare distance to
+         */
         public EntityComparator(Position compared) {
             this.compared = compared;
         }

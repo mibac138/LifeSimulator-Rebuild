@@ -74,21 +74,45 @@ public class Position {
         setPosition(p.x, p.y);
     }
 
+    /**
+     * Adds specified x and y to this position
+     *
+     * @param x - amount you want to add to x coordinate
+     * @param y - amount you want to add to y coordinate
+     */
     public void add(double x, double y) {
         this.x += x;
         this.y += y;
     }
 
+    /**
+     * Subtracts specified x and y from this position
+     *
+     * @param x - amount you want to subtract from x coordinate
+     * @param y - amount you want to subtract from y coordinate
+     */
     public void subtract(double x, double y) {
         this.x -= x;
         this.y -= y;
     }
 
+    /**
+     * Multiplies this position by specified x and y
+     * 
+     * @param x - x multiplier
+     * @param y - y multiplier
+     */
     public void multiply(double x, double y) {
         this.x *= x;
         this.y *= y;
     }
 
+    /**
+     * Divides this position by specified x and y
+     * 
+     * @param x - x divider
+     * @param y - y divider
+     */
     public void divide(double x, double y) {
         this.x /= x;
         this.y /= y;
