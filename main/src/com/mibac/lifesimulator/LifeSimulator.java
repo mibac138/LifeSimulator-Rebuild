@@ -14,7 +14,7 @@ import com.mibac.lifesimulator.view.BasicContainerView;
 import com.mibac.lifesimulator.view.ContainerView;
 
 public final class LifeSimulator {
-    public static final double FPS = 0.5d;
+    public static final double FPS = 60;
 
     public static void main(String... args) {
         new LifeSimulator();
@@ -57,6 +57,7 @@ public final class LifeSimulator {
 
     private void gameLoop(IController<?> controller) {
         double updateInterval = 1.0d / FPS;
+        updateInterval *= 1E9; // seconds to nanoseconds
 
         double currentTime = System.nanoTime();
         double lastTime = currentTime;
