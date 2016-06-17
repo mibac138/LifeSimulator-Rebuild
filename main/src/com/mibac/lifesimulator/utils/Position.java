@@ -74,6 +74,26 @@ public class Position {
         setPosition(p.x, p.y);
     }
 
+    public void add(double x, double y) {
+        this.x += x;
+        this.y += y;
+    }
+
+    public void subtract(double x, double y) {
+        this.x -= x;
+        this.y -= y;
+    }
+
+    public void multiply(double x, double y) {
+        this.x *= x;
+        this.y *= y;
+    }
+
+    public void divide(double x, double y) {
+        this.x /= x;
+        this.y /= y;
+    }
+
     /**
      * Calculates distance between this and given (<code>second</code>) position.
      *
