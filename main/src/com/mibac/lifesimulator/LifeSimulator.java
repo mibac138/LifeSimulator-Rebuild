@@ -13,7 +13,11 @@ import com.mibac.lifesimulator.utils.Position;
 import com.mibac.lifesimulator.view.BasicContainerView;
 import com.mibac.lifesimulator.view.ContainerView;
 
-public final class LifeSimulator {
+public class LifeSimulator {
+    /**
+     * FPS stands for <b>Frames Per Second</b> and defines interval between game updates.<br>
+     * For value 60 it's about 0.01(6) Ms.
+     */
     public static final double FPS = 60;
 
     public static void main(String... args) {

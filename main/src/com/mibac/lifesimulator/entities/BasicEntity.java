@@ -13,7 +13,6 @@ public class BasicEntity extends Entity {
         this.speed = 7.25;
     }
 
-    // BUG always 1 sets target to itself
     public void update(List<? extends IEntity> entities) {
         if (entities.size() <= 1)
             return;

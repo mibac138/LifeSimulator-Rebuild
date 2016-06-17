@@ -1,5 +1,7 @@
 package com.mibac.lifesimulator.utils;
 
+import java.awt.Point;
+
 import com.mibac.lifesimulator.entities.IEntity;
 
 /**
@@ -26,6 +28,10 @@ public class Position {
         this(p.x, p.y);
     }
 
+    public Position(Point p) {
+        this(p.x, p.y);
+    }
+
     public Position() {
         this(0, 0);
     }
@@ -48,27 +54,39 @@ public class Position {
         return (int) y;
     }
 
+    /**
+     * Changes this position to the given one
+     *
+     * @param x - new x value for this position
+     * @param y - new y value for this position
+     */
     public void setPosition(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Changes this position to the given one
+     *
+     * @param p - new x and y value for this position
+     */
     public void setPosition(Position p) {
         setPosition(p.x, p.y);
     }
 
     /**
+     * Calculates distance between this and given (<code>second</code>) position.
      *
-     * @param second
-     * @return distance between this and {@code second} position
+     * @param second - another position you want to get distance to
+     * @return distance between this and <code>second</code> position
      */
     public double distance(Position second) {
-        double x = this.x - second.x;
-        double y = this.y - second.y;
-
-        return Math.sqrt(x * x + y * y);
+        return distance(second.x, second.y);
     }
 
+    /**
+     * @see #distance(Position)
+     */
     public double distance(double x, double y) {
         final double _x = this.x - x;
         final double _y = this.y - y;

@@ -2,11 +2,9 @@ package com.mibac.lifesimulator.controllers;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import com.mibac.lifesimulator.containers.IContainer;
 import com.mibac.lifesimulator.entities.BasicEntity;
-import com.mibac.lifesimulator.entities.IEntity;
 import com.mibac.lifesimulator.utils.Position;
 import com.mibac.lifesimulator.view.ContainerView;
 
@@ -17,11 +15,10 @@ public class BasicController extends Controller<BasicEntity> {
 
     @Override
     public void update(double delta) {
-        List<IEntity> copy = new ArrayList<>(container.getEntities());
         for (Iterator<BasicEntity> iterator = container.getEntities().iterator(); iterator
                 .hasNext();) {
             BasicEntity entity = iterator.next();
-            entity.update(copy);
+            entity.update(new ArrayList<>(container.getEntities()));
 
             movement(entity, delta);
         }

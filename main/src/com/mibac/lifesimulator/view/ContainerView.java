@@ -13,6 +13,9 @@ import com.mibac.lifesimulator.utils.Position;
 
 public class ContainerView<T extends IEntity> extends JFrame {
     private static final long serialVersionUID = 1L;
+    /**
+     * Container containing all entities
+     */
     protected transient IContainer<T> container;
 
     public ContainerView() {
@@ -26,6 +29,11 @@ public class ContainerView<T extends IEntity> extends JFrame {
         this.container = container;
     }
 
+    /**
+     * Sets current container to the specified container
+     *
+     * @param container - the container you want to display now
+     */
     public void setContainer(IContainer<T> container) {
         this.container = container;
     }
@@ -41,16 +49,23 @@ public class ContainerView<T extends IEntity> extends JFrame {
 
         graphics.setColor(Color.green);
         for (IEntity entity : container.getEntities())
-            drawCenteredOval(graphics, entity.getPosition(), 50);
+            drawCenteredOval(graphics, entity.getPosition(), 50, 50);
 
         g.drawImage(buffer, 0, 0, getWidth(), getHeight(), 0, 0, buffer.getWidth(),
                 buffer.getHeight(), this);
     }
 
-    protected void drawCenteredOval(Graphics2D graphics, Position center, int r) {
-        int r2 = r / 2;
-        int x = center.getX() - r2;
-        int y = center.getY() - r2;
-        graphics.fillOval(x, y, r, r);
+    /**
+     * Easy way of drawing centered ovals.
+     *
+     * @param graphics - graphics on which you want the oval to be drawn
+     * @param center - center of the oval
+     * @param w - width
+     * @param h - height
+     */
+    protected void drawCenteredOval(Graphics2D graphics, Position center, int w, int h) {
+        int x = center.getX() - w / 2;
+        int y = center.getY() - h / 2;
+        graphics.fillOval(x, y, w, h);
     }
 }

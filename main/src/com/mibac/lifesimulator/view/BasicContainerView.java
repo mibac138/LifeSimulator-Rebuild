@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 
 import com.mibac.lifesimulator.entities.BasicEntity;
 
-public class BasicContainerView extends ContainerView<BasicEntity> {
-    private static final long serialVersionUID = 1L;
+public class BasicContainerView extends MoveableContainerView<BasicEntity> {
+    private static final long serialVersionUID = 3L;
 
     @Override
     public void paint(Graphics g) {
@@ -21,7 +21,7 @@ public class BasicContainerView extends ContainerView<BasicEntity> {
 
         for (BasicEntity entity : container.getEntities()) {
             graphics.setColor(Color.green);
-            drawCenteredOval(graphics, entity.getPosition(), 10);
+            drawCenteredOval(graphics, entity.getPosition(), 10, 10);
             graphics.setColor(Color.red);
             if (entity.getTarget() != null)
                 graphics.drawLine(entity.getPosition().getX(), entity.getPosition().getY(),
